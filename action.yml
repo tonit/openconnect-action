@@ -1,0 +1,19 @@
+name: 'openconnect'
+description: 'Openconnect Client'
+
+inputs:
+  endpoint:
+    description: 'vpn endpoint'
+    required: true
+  user:
+    description: 'vpn user'
+    required: true
+  password:
+    description: 'Password'
+    required: true
+
+runs:
+  using: node20
+  main: index.js
+  post: post.js
+
