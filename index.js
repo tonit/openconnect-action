@@ -3,7 +3,7 @@ var exec = require('child_process').exec;
 
 async function run() {
     try {
-       core.info('Opening OpenConnect Connection to ' + endpoint);
+       core.info('Hey, opening OpenConnect Connection to ' + endpoint);
        const endpoint = core.getInput('endpoint');
        const user = core.getInput('user');
        const password = core.getInput('password');
@@ -15,7 +15,7 @@ async function run() {
             }
             core.info('OpenConnect connection opened');
         });
-        
+
         openconnect_process.stdout.on('data', function(data) {
             console.log(data); 
         });
