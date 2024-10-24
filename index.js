@@ -3,17 +3,21 @@ var exec = require('child_process').exec;
 
 async function run() {
     try {
-       core.info('Opening OpenConnect connection');
+       core.info('Opening OpenConnect Connection to ' + endpoint);
        const endpoint = core.getInput('endpoint');
        const user = core.getInput('user');
        const password = core.getInput('password');
 
-       exec('echo "'+password+'" | openconnect  --user='+user+' -b --passwd-on-stdin ' + endpoint + ' --no-dtls', function(error, stdout, stderr) {
+       var openconnect_process = exec('echo "'+password+'" | openconnect  --user='+user+' -b --passwd-on-stdin ' + endpoint + ' --no-dtls', function(error, stdout, stderr) {
             if (error) {
                 core.setFailed(error.message);
                 return;
             }
             core.info('OpenConnect connection opened');
+        });
+        
+        openconnect_process.stdout.on('data', function(data) {
+            console.log(data); 
         });
 
     } catch (error) {
