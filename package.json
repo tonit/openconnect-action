@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "package" : "npx ncc build -m index.js && npx ncc build -m post.js --out dist/post",
+    "package" : "npx ncc build -m index.js --out dist/main && npx ncc build -m post.js --out dist/post",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
