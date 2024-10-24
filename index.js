@@ -16,7 +16,7 @@ async function run() {
         };
         
         // Spawn the child process to run the openconnect command
-        const openconnect = spawn('bash', ['-c', `echo "${env.VPN_PASSWORD}" | openconnect --user=${env.VPN_USER} -b --passwd-on-stdin ${env.VPN_USER} ${env.ENDPOINT} --no-dtls`], {
+        const openconnect = spawn('bash', ['-c', `echo "${env.VPN_PASSWORD}" | openconnect --user=${env.VPN_USER} -b --passwd-on-stdin ${env.ENDPOINT} --no-dtls`], {
             env: process.env
         });
         // Handle stdout
